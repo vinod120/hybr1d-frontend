@@ -55,11 +55,16 @@
   box-sizing: border-box;
 }
 
-.login-btn input {
-  margin-top: 50px;
+.login-btn {
   cursor: pointer;
-  height: 40px;
   cursor: pointer;
   background-color: #24292f;
   color: var(--white);
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
 }
+.login-btn-loading {
+  background-color: #888d93c2;
+}
+
