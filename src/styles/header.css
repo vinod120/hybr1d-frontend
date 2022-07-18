@@ -1,0 +1,26 @@
+.header-container {
+  height: 60px;
+  padding: 0 6%;
+  background-color: var(--white);
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-clr);
+  box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
+}
+
+.main-logo {
+  cursor: pointer;
+}
+.header-right > div {
+    margin: 0 20px;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--primary-clr);
+    cursor: pointer;
+}
+.header-right > div:hover {
+    color: black;
+}

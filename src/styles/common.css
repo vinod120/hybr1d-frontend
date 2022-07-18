@@ -1,0 +1,25 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f2ef;
+}
+:root {
+  --primary-clr: blue;
+  --white: #fff;
+  --border-clr: #00000014;
+  --primary-clr: rgba(0,0,0,0.6);
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
