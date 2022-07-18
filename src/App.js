@@ -4,6 +4,7 @@ import ProtectedRoute from "./common/ProtectedRoute";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import './styles/common.css';
 
 function App() {
   return (

@@ -10,10 +10,10 @@ body {
   background-color: #f3f2ef;
 }
 :root {
-  --primary-clr: blue;
   --white: #fff;
   --border-clr: #00000014;
-  --primary-clr: rgba(0,0,0,0.6);
+  --primary-clr: rgba(0, 0, 0, 0.6);
+  --text-clr: #24292f;
 }
 
 .d-flex {
