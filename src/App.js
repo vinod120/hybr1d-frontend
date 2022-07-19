@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, HashRouter } from "react-router-dom";
 import ProtectedRoute from "./common/ProtectedRoute";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -13,7 +13,7 @@ import SingleProduct from "./pages/SingleProduct";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact path="/login">
             <Login />
@@ -47,7 +47,7 @@ function App() {
             <Redirect to="/" />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Hash>
     </div>
   );
 }
