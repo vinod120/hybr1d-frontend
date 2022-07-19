@@ -96,30 +96,34 @@
   border: 1px solid rgb(0, 114, 229);;
   padding: 0 10px;
   border-radius: 8px;
-  margin-bottom: 10px;
-
+  margin-bottom: 20px;
+  line-height: 30px
+}
+.card-container:hover {
+  background-color: #abccff80
 }
 .search-body a:hover {
-  color: rgb(0, 114, 229);
+  color: rgb(79, 159, 239);
 }
-/* width */
+
 ::-webkit-scrollbar {
   width: 6px;
   border-radius: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888; 
   border-radius: 6px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+.no-resutls {
+  text-align: center;
+  margin-top: 30px;
 }

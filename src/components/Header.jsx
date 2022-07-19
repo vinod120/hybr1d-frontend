@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/header.css";
 import Logo from "../images/logo.svg";
 import AvatarLogo from "../images/avatar.png";
@@ -126,8 +126,6 @@ const Header = () => {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              // value={searhText}
-              // onChange={(e) => searchQuery(e.target.value)}
             />
           </Search>
         </div>

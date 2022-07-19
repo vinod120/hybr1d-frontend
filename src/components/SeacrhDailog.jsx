@@ -4,17 +4,28 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import { base_url } from "../utils";
 import { Link } from "react-router-dom";
+import Loading from "../common/Loading";
+import "../styles/loader.css";
+import noResults from "../images/no_results.svg";
 
 const SeacrhDailog = ({ open, handleClose }) => {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const searchQuery = (query) => {
+    setLoading(true);
     setSearchText(query);
     axios
       .get(`${base_url}/search?query=${query}`)
-      .then((res) => setData(res?.data?.hits))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setData(res?.data?.hits);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
   };
 
   return (
@@ -38,23 +49,37 @@ const SeacrhDailog = ({ open, handleClose }) => {
             />
           </div>
           <div className="search-body">
-            {data &&
-              data?.length > 0 &&
-              data?.map(
-                ({ title, objectID, url, author, points, relevancy_score }) => (
+            {data && data?.length > 0
+              ? data?.map(({ title, objectID, url, author, points }) => (
                   <Link to={objectID} key={objectID}>
-                    <div  className="card-container">
-                      <div>{title}</div>
-                      <div>{url}</div>
-                      <div>{author}</div>
-                      <div>{points}</div>
-                      <div>{relevancy_score}</div>
+                    <div className="card-container">
+                      <strong>Title: {title}</strong>
+                      <div>
+                        <strong>Author: {author}</strong>
+                      </div>
+                      <div className="d-flex justify-between">
+                        <strong>Points: {points}</strong>
+                        <div>{url}</div>
+                      </div>
                     </div>
                   </Link>
-                )
-              )}
+                ))
+              :
+                  <div className="no-resutls">
+                    <img
+                      src={noResults}
+                      alt="no_results"
+                      width={50}
+                      height={50}
+                    />
+                    <div>
+                      No results for <b>"{searchText}"</b>
+                    </div>
+                  </div>
+                }
           </div>
         </div>
+        {loading && <Loading />}
       </Dialog>
     </div>
   );
