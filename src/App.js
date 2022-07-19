@@ -8,6 +8,7 @@ import "./styles/common.css";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import Dashboard from "./pages/Dashboard";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
           <ProtectedRoute exact path="/dashboard">
             <Layout>
               <Dashboard />
+            </Layout>
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/product/:id">
+            <Layout>
+              <SingleProduct />
             </Layout>
           </ProtectedRoute>
           <Route>

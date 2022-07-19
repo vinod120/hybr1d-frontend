@@ -3,12 +3,13 @@ import Dialog from "@mui/material/Dialog";
 import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import { base_url } from "../utils";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Loading from "../common/Loading";
 import "../styles/loader.css";
 import noResults from "../images/no_results.svg";
 
 const SeacrhDailog = ({ open, handleClose }) => {
+  const history =  useHistory()
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,6 +28,12 @@ const SeacrhDailog = ({ open, handleClose }) => {
         console.log(err);
       });
   };
+
+  const navigate = (id) => {
+    history.push(`/product/${id}`)
+    setSearchText('')
+    handleClose()
+  }
 
   return (
     <div>
@@ -49,34 +56,30 @@ const SeacrhDailog = ({ open, handleClose }) => {
             />
           </div>
           <div className="search-body">
-            {data && data?.length > 0
-              ? data?.map(({ title, objectID, url, author, points }) => (
-                  <Link to={objectID} key={objectID}>
-                    <div className="card-container">
-                      <strong>Title: {title}</strong>
-                      <div>
-                        <strong>Author: {author}</strong>
-                      </div>
-                      <div className="d-flex justify-between">
-                        <strong>Points: {points}</strong>
-                        <div>{url}</div>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              :
-                  <div className="no-resutls">
-                    <img
-                      src={noResults}
-                      alt="no_results"
-                      width={50}
-                      height={50}
-                    />
+            {searchText?.length > 0 &&  data && data?.length > 0 ? (
+              data?.map(({ title, objectID, url, author, points }) => (
+                <a key={objectID} onClick={() => navigate(objectID)} className="cursor-pointer">
+                  <div className="card-container">
+                    <strong>Title: {title}</strong>
                     <div>
-                      No results for <b>"{searchText}"</b>
+                      <strong>Author: {author}</strong>
+                    </div>
+                    <div className="d-flex justify-between">
+                      <strong>Points: {points}</strong>
+                      <div>{url}</div>
                     </div>
                   </div>
-                }
+                </a>
+              ))
+            ) : (
+              searchText?.length >  0 && 
+              <div className="no-resutls">
+                <img src={noResults} alt="no_results" width={50} height={50} />
+                <div>
+                  No results for <b>"{searchText}"</b>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {loading && <Loading />}
