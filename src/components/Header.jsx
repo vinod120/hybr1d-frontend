@@ -172,8 +172,9 @@ const Header = () => {
             ))}
           </Menu>
         </Box>
-      </div>
       <SeacrhDailog open={open} handleClose={handleClose} />
+
+      </div>
     </header>
   );
 };

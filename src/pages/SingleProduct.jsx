@@ -29,7 +29,7 @@ const SingleProduct = () => {
         setLoading(false);
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="mt-100 single-product-container">
