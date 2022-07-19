@@ -50,10 +50,10 @@
 .search-dailog-container {
   min-height: 500px;
 }
-.css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop {
+.css-yiavyu-MuiBackdrop-root-MuiDialog-backdrop, .css-919eu4 {
   background-color: rgba(111, 126, 140, 0.2) !important;
 }
-.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper, .css-uhb5lp {
   box-shadow: rgb(62 80 96 / 20%) 0px 4px 20px !important;
   border-radius: clamp(0px, (100vw - 750px) * 9999, 10px) !important;
   min-width: 700px;
