@@ -47,7 +47,7 @@ function App() {
             <Redirect to="/" />
           </Route>
         </Switch>
-      </Hash>
+      </HashRouter>
     </div>
   );
 }
